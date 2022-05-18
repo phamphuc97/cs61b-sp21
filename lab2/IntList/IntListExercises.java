@@ -65,18 +65,19 @@ public class IntListExercises {
      * @param lst IntList from Lecture
      * @return True if there was an update to the list
      */
-    public static boolean squarePrimes(IntList lst) {
+    public static boolean squarePrimes(IntList lst, boolean change) {
         // Base Case: we have reached the end of the list
         if (lst == null) {
-            return true;
+            return change;
         }
 
         boolean currElemIsPrime = Primes.isPrime(lst.first);
 
         if (currElemIsPrime) {
             lst.first *= lst.first;
+            change = true;
         }
 
-        return squarePrimes(lst.rest);
+        return squarePrimes(lst.rest, change);
     }
 }
